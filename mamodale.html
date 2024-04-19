@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .overlay
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+    }
+    .modal
+    {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 400px;
+        background-color: white;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-radius: 3px;
+        padding: 20px;
+        display: none;
+    }
+    .modal--open
+    {
+        display: block;
+    }
+    .modal_close
+    {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        cursor: pointer;
+        transition: 0.3s all ease-in-out;
+    }
+    .modal_close svg
+    {
+        height: 20px;
+        width: 20px;
+    }
+    .modal_close:hover
+    {
+        transform: rotate(360deg);
+    }
+    .modal_header h2
+    {
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .modal_body p
+    {
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .modal_footer button
+    {
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        background-color: #3f51b5;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s all ease-in-out;
+    }
+    .modal_footer button:hover
+    {
+        background-color: #303f9f;
+    }
+</style>
+<body>
+    <button onclick="openModal()">Ouvrir la modale</button>
+    <div class="overlay"></div>
+    <div class="modal">
+        <div onclick="closeModal()" class="modal_close"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </div>
+        <div class="modal_header">
+            <h2 class="modal_titre">Titre de la modale</h2>
+        </div>
+        <div class="modal_body">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem quae fugit repudiandae rerum dolorum inventore facilis cum, quas quasi! Nobis natus repellat eligendi necessitatibus atque corporis eveniet deserunt! Sunt, eum.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, inventore eligendi. Eveniet vel iusto nemo inventore, quaerat cum tempore ex aliquam sapiente facilis at aspernatur voluptates laboriosam officia doloremque officiis?
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil eaque voluptatum dolorem tempore vitae cumque! Quos cupiditate minima debitis tenetur temporibus. Facere quasi vitae dolore fuga, maiores nobis nam minus!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos libero cumque dolores maiores voluptatum quaerat impedit magni ipsa, sapiente dolore culpa dolorem illo quibusdam harum iste ut minima voluptas nihil?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, assumenda, libero pariatur dolorum natus aut iusto odio cum fugiat rerum amet deserunt non cumque recusandae. Impedit et maxime dolorem atque?
+            </p>
+        </div>
+        <div class="modal_footer">
+            <button onclick="closeModal()" class="modal_footer_button">Enregistrer</button>
+        </div>
+    </div>
+</body>
+<script>
+    function openModal ()
+    {
+        document.querySelector('.overlay').style.display = 'block';
+        document.querySelector('.modal').classList.add('modal--open');
+    }
+
+    function closeModal()
+    {
+        document.querySelector('.overlay').style.display = 'none';
+        document.querySelector('.modal').classList.remove('modal--open');
+    }
+</script>
+</html>
